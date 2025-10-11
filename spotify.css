@@ -1,0 +1,228 @@
+.spotify-wrapper {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  overflow-x: scroll;
+}
+
+.spotify-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.spotify-cover {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.spotify-info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.spotify-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #b3b3b3;
+}
+
+.spotify-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+}
+
+.spotify-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.song-title {
+  font-size: 0.9rem;
+}
+
+.song-duration {
+  font-size: 0.8rem;
+  color: #b3b3b3;
+}
+
+.spotify-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spotify-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto; /* empuja los botones a la derecha */
+}
+
+.spotify-buttons button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.spotify-buttons button:hover {
+  transform: scale(1.1);
+  color: var(--light-green);
+}
+
+.spotify-list li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spotify-list li.active .song-title {
+  color: var(--light-green);
+}
+
+.play-btn {
+  background-color: #fff;
+  color: #121212;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.progress-bar {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 4px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress {
+  background-color: #fff;
+  height: 100%;
+  width: 45%;
+}
+
+.code-embed {
+  width: 100%;
+  height: 163px;
+  overflow-y: auto; /* scroll vertical si hace falta */
+  overflow-x: hidden; /* oculta cualquier scroll horizontal */
+  border-radius: 12px;
+  background-color: #121212;
+  scrollbar-width: thin;
+  scrollbar-color: var(--light-green) #000;
+}
+
+/* Scrollbar para Chrome, Edge, etc. */
+.code-embed::-webkit-scrollbar {
+  width: 6px;
+}
+
+.code-embed::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.code-embed::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.spotify-wrapper {
+  overflow-x: hidden;
+}
+
+/* Opcional: suavizar la transición de la lista */
+.spotify-list li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.2s ease;
+}
+
+/* ==== MEDIA QUERIES: RESPONSIVE ==== */
+
+/* TABLETS Y MÓVILES PEQUEÑOS */
+@media (max-width: 767px) {
+  .spotify-header {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .spotify-info h4 {
+    font-size: 0.95rem;
+  }
+
+  .spotify-info p {
+    font-size: 0.75rem;
+  }
+
+  .play-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .spotify-cover {
+    width: 48px;
+    height: 48px;
+  }
+
+  .spotify-buttons {
+    gap: 0.3rem;
+  }
+
+  .spotify-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .song-title,
+  .song-duration {
+    flex: none;
+    width: 100%;
+    text-align: left;
+  }
+
+  .song-duration {
+    font-size: 0.75rem;
+    color: #aaa;
+  }
+}
+
+/* MÓVILES MUY PEQUEÑOS (<= 400px) */
+@media (max-width: 400px) {
+  .spotify-info h4 {
+    font-size: 0.85rem;
+  }
+
+  .spotify-info p {
+    font-size: 0.7rem;
+  }
+
+  .play-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+
+  .spotify-cover {
+    width: 40px;
+    height: 40px;
+  }
+
+  .spotify-buttons button {
+    font-size: 1rem;
+  }
+}
