@@ -65,7 +65,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  margin-left: auto; /* empuja los botones a la derecha */
+  margin-left: auto; 
 }
 
 .spotify-buttons button {
@@ -74,12 +74,22 @@
   border: none;
   cursor: pointer;
   font-size: 1.1rem;
+  padding: 0;       
+  display: flex;     
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s ease;
 }
 
 .spotify-buttons button:hover {
   transform: scale(1.1);
   color: var(--light-green);
+}
+
+.spotify-buttons svg {
+  width: 20px;    
+  height: 20px;
+  fill: currentColor;
 }
 
 .spotify-list li.active {
@@ -119,15 +129,14 @@
 .code-embed {
   width: 100%;
   height: 163px;
-  overflow-y: auto; /* scroll vertical si hace falta */
-  overflow-x: hidden; /* oculta cualquier scroll horizontal */
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 12px;
   background-color: #121212;
   scrollbar-width: thin;
   scrollbar-color: var(--light-green) #000;
 }
 
-/* Scrollbar para Chrome, Edge, etc. */
 .code-embed::-webkit-scrollbar {
   width: 6px;
 }
@@ -145,15 +154,11 @@
   overflow-x: hidden;
 }
 
-/* Opcional: suavizar la transición de la lista */
 .spotify-list li:hover {
   background-color: rgba(255, 255, 255, 0.05);
   transition: background-color 0.2s ease;
 }
 
-/* ==== MEDIA QUERIES: RESPONSIVE ==== */
-
-/* TABLETS Y MÓVILES PEQUEÑOS */
 @media (max-width: 767px) {
   .spotify-header {
     flex-direction: row;
@@ -201,7 +206,6 @@
   }
 }
 
-/* MÓVILES MUY PEQUEÑOS (<= 400px) */
 @media (max-width: 400px) {
   .spotify-info h4 {
     font-size: 0.85rem;

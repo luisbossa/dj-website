@@ -5,7 +5,7 @@
   align-items: center;
   text-transform: uppercase;
   gap: 3rem;
-  flex-wrap: wrap; /* Permite que se acomode en pantallas chicas */
+  flex-wrap: wrap;
 }
 
 .middle {
@@ -35,9 +35,6 @@
   text-align: center;
 }
 
-/* === RESPONSIVE ADAPTATIONS === */
-
-/* Tablets y móviles medianos (<= 768px) */
 @media (max-width: 768px) {
   .time {
     gap: 2rem;
@@ -53,7 +50,6 @@
   }
 }
 
-/* Móviles pequeños (<= 480px) */
 @media (max-width: 480px) {
   .time {
     gap: 1.5rem;
