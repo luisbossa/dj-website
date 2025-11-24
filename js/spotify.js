@@ -1,4 +1,3 @@
-// Variable global para llevar control del audio que está sonando
 let currentAudio = null;
 let currentPlayBtn = null;
 
@@ -13,7 +12,6 @@ document.querySelectorAll(".spotify-wrapper").forEach((wrapper) => {
   let isPlaying = false;
   let audio = new Audio(songItems[currentSongIndex].dataset.src);
 
-  // 🔹 Detiene cualquier otro reproductor activo
   const stopCurrentAudio = () => {
     if (currentAudio && currentAudio !== audio) {
       currentAudio.pause();
@@ -22,7 +20,6 @@ document.querySelectorAll(".spotify-wrapper").forEach((wrapper) => {
     }
   };
 
-  // 🔹 Vincular barra de progreso al audio actual
   const attachProgress = () => {
     audio.addEventListener("timeupdate", () => {
       const progressPercent = (audio.currentTime / audio.duration) * 100;
@@ -38,12 +35,10 @@ document.querySelectorAll(".spotify-wrapper").forEach((wrapper) => {
     });
   };
 
-  // Inicializar el primer audio
   attachProgress();
 
-  // --- Play / Pause ---
   playBtn.addEventListener("click", () => {
-    stopCurrentAudio(); // Detiene otro reproductor
+    stopCurrentAudio();
 
     if (!isPlaying) {
       audio.play();
@@ -60,7 +55,6 @@ document.querySelectorAll(".spotify-wrapper").forEach((wrapper) => {
     }
   });
 
-  // --- Click en una canción específica ---
   songItems.forEach((li, index) => {
     li.addEventListener("click", () => {
       stopCurrentAudio();
@@ -80,7 +74,6 @@ document.querySelectorAll(".spotify-wrapper").forEach((wrapper) => {
     });
   });
 
-  // --- Botón siguiente ---
   nextBtn.addEventListener("click", () => {
     stopCurrentAudio();
     currentSongIndex = (currentSongIndex + 1) % songItems.length;
@@ -89,7 +82,7 @@ document.querySelectorAll(".spotify-wrapper").forEach((wrapper) => {
 
     audio.pause();
     audio = new Audio(songItems[currentSongIndex].dataset.src);
-    attachProgress(); // 🔥 Aquí conectamos la barra con el nuevo audio
+    attachProgress();
     audio.play();
 
     playBtn.textContent = "⏸";
@@ -98,7 +91,6 @@ document.querySelectorAll(".spotify-wrapper").forEach((wrapper) => {
     currentPlayBtn = playBtn;
   });
 
-  // --- Botón anterior ---
   prevBtn.addEventListener("click", () => {
     stopCurrentAudio();
     currentSongIndex =
@@ -108,7 +100,7 @@ document.querySelectorAll(".spotify-wrapper").forEach((wrapper) => {
 
     audio.pause();
     audio = new Audio(songItems[currentSongIndex].dataset.src);
-    attachProgress(); // 🔥 También aquí
+    attachProgress();
     audio.play();
 
     playBtn.textContent = "⏸";
