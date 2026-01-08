@@ -22,10 +22,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* =====================
-   Layout
-===================== */
-
 .page {
   position: relative;
   min-height: 100vh;
@@ -59,24 +55,16 @@ input[type="number"] {
   justify-content: space-between;
 }
 
-/* =====================
-   DJ Image (NO TOCAR)
-===================== */
-
 .dj-image {
   width: 100%;
   height: 100%;
   background: url("/images/validation/front-img.png") center / cover no-repeat;
 }
 
-/* =====================
-   Age Gate Card
-===================== */
-
 .age-gate {
   max-width: 500px;
   margin: auto;
-  padding: 3.5rem 2rem;
+  padding: 3rem 2rem;
   text-align: center;
   background: rgba(12, 12, 12, 0.75);
   backdrop-filter: blur(12px);
@@ -91,13 +79,9 @@ input[type="number"] {
 }
 
 .age-logo {
-  width: 190px;
+  width: 170px;
   filter: drop-shadow(0 0 20px rgba(209, 216, 109, 0.25));
 }
-
-/* =====================
-   Text
-===================== */
 
 .age-title {
   font-family: "Brandon Brotesque", sans-serif;
@@ -125,7 +109,8 @@ input[type="number"] {
 }
 
 .age-error {
-  display: none;
+    opacity: 0;
+  transform: translateY(-6px);
   background: rgba(160, 160, 160, 0.15);
   border: 1px solid rgba(160, 160, 160, 0.4);
   padding: 0.75rem 1rem;
@@ -133,6 +118,13 @@ input[type="number"] {
   font-size: 0.9rem;
   margin-bottom: 1rem;
   color: #f5f5f5;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.age-error.is-visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .age-form {
@@ -204,20 +196,12 @@ input[type="number"] {
   transform: translateY(0);
 }
 
-/* =====================
-   Footer
-===================== */
-
 .age-footer {
   padding: 1.25rem;
   text-align: center;
   font-size: 0.75rem;
   color: #8a8a8a;
 }
-
-/* =====================
-   Responsive
-===================== */
 
 @media (max-width: 480px) {
   .age-gate {
