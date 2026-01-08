@@ -175,15 +175,16 @@ input[type="number"] {
 
 .age-button {
   padding: 1rem;
+  color: #161616;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #d1d86d, #bfc653);
-  border: none;
   border-radius: 12px;
+  font-family: termina, sans-serif;
+  background: linear-gradient(135deg, #d1d86d, #bfc653);
   cursor: pointer;
-  color: #161616;
+  border: none;
   transition: all 0.25s ease;
 }
 
