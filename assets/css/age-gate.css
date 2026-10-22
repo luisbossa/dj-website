@@ -1,0 +1,361 @@
+:root {
+  --light-green: #d1d86d;
+  --light-green-dark: #bfc653;
+  --bg: #0b0b0b;
+  --text-muted: #b5b5b5;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: termina, sans-serif;
+  background: var(--bg);
+  color: #fff;
+}
+
+/* =====================
+   Layout: todo cabe en una pantalla
+===================== */
+
+.page {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.page-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.dj-image {
+  width: 100%;
+  height: 100%;
+  background: url("/assets/images/backgrounds/age-gate-bg.png") center / cover no-repeat;
+  transform: scale(1.05);
+  animation: bg-zoom 20s ease-out forwards;
+}
+
+.page-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(209, 216, 109, 0.12), transparent 55%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.92));
+}
+
+@keyframes bg-zoom {
+  to {
+    transform: scale(1);
+  }
+}
+
+.page-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  padding: 1.5rem 1rem 0;
+}
+
+/* =====================
+   Tarjeta
+===================== */
+
+.age-gate {
+  width: 100%;
+  max-width: 440px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vh, 2.5rem) clamp(1.25rem, 4vw, 2.25rem);
+  text-align: center;
+  background: rgba(12, 12, 12, 0.72);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: card-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+
+.age-logo {
+  display: block;
+  width: clamp(72px, 11vh, 104px);
+  margin: 0 auto clamp(0.75rem, 2.5vh, 1.25rem);
+  filter: drop-shadow(0 0 20px rgba(209, 216, 109, 0.25));
+}
+
+.age-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: clamp(0.6rem, 1.8vh, 1rem);
+  padding: 6px 14px;
+  border: 1px solid var(--light-green);
+  border-radius: 10em;
+  color: var(--light-green);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.age-badge strong {
+  padding: 2px 7px;
+  border-radius: 10em;
+  background: var(--light-green);
+  color: #000;
+  font-weight: 700;
+}
+
+.age-title {
+  margin: 0 0 clamp(0.6rem, 1.8vh, 1rem);
+  color: var(--light-green);
+  font-size: clamp(1.45rem, 3.6vh, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.age-text {
+  max-width: 34ch;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/* =====================
+   Formulario
+===================== */
+
+.age-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.9rem, 2.4vh, 1.25rem);
+  margin-top: clamp(1.25rem, 3.5vh, 2rem);
+}
+
+.age-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.age-legend {
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.age-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 0.6rem;
+}
+
+.age-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.age-field span {
+  color: #8a8a8a;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.age-field input {
+  width: 100%;
+  padding: 0.85rem 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  letter-spacing: 0.05em;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.age-field input::placeholder {
+  color: #5a5a5a;
+}
+
+.age-field input:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.age-field input:focus {
+  outline: none;
+  border-color: var(--light-green);
+  background: rgba(209, 216, 109, 0.06);
+  box-shadow: 0 0 0 4px rgba(209, 216, 109, 0.12);
+}
+
+.age-form.has-error .age-field input {
+  border-color: rgba(255, 120, 120, 0.6);
+}
+
+/* El error no ocupa espacio hasta que aparece */
+.age-error {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin: 0;
+  opacity: 0;
+  transition: grid-template-rows 0.25s ease, opacity 0.25s ease;
+}
+
+.age-error > span {
+  overflow: hidden;
+  color: #ffb4b4;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.age-error.is-visible {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.age-form.shake {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+/* =====================
+   Botón
+===================== */
+
+.age-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 10em;
+  background: linear-gradient(135deg, var(--light-green), var(--light-green-dark));
+  color: #000;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.age-button svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.age-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(209, 216, 109, 0.25);
+}
+
+.age-button:hover svg {
+  transform: translateX(3px);
+}
+
+.age-button:active {
+  transform: translateY(0);
+}
+
+.age-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.age-note {
+  margin: 0;
+  color: #6f6f6f;
+  font-size: 0.6rem;
+  line-height: 1.5;
+}
+
+/* =====================
+   Footer
+===================== */
+
+.age-footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.65rem;
+  line-height: 1.5;
+  color: #7a7a7a;
+}
+
+.age-footer p {
+  margin: 0;
+}
+
+/* =====================
+   Pantallas bajas o pequeñas
+===================== */
+
+@media (max-height: 640px) {
+  .age-text {
+    display: none;
+  }
+
+  .age-note {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .age-gate {
+    border-radius: 22px;
+  }
+
+  .age-footer {
+    font-size: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dj-image,
+  .age-gate,
+  .age-form.shake {
+    animation: none;
+  }
+}

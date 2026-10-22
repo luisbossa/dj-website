@@ -2508,7 +2508,7 @@ textarea.w-select {
   height: 100%;
   min-height: 100vh;
   background-image: linear-gradient(#00000080, #00000080),
-    url("/images/big-img.jpg");
+    url("/assets/images/backgrounds/big-img.jpg");
   background-position: 0 0, 50%;
   background-size: auto, cover;
   border-radius: 32px;
@@ -2749,10 +2749,6 @@ textarea.w-select {
   min-height: 112vh;
   margin: 0 auto;
   padding: 2rem 2rem 0 2rem;
-  background-image: url("/images/black-paper.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 👈 2 columnas */
   border-radius: 32px;
@@ -2850,7 +2846,7 @@ textarea.w-select {
 
 .hero_bg {
   background-image: linear-gradient(#00000080, #00000080),
-    url("/images/big-img.jpg");
+    url("/assets/images/backgrounds/big-img.jpg");
   background-position: 0 0, 50%;
   background-repeat: repeat, no-repeat;
   background-size: auto, 1500px;
@@ -3147,7 +3143,7 @@ textarea.w-select {
 
   .hero_bg {
     background-image: linear-gradient(#00000080, #00000080),
-      url("/images/big-img.jpg");
+      url("/assets/images/backgrounds/big-img.jpg");
     background-size: auto, auto;
   }
 }
@@ -3358,7 +3354,7 @@ textarea.w-select {
 
   .section.hero {
     background-image: linear-gradient(#000000bf, #000000bf),
-      url("/images/big-img.jpg");
+      url("/assets/images/backgrounds/big-img.jpg");
     background-size: auto, cover;
     background-attachment: scroll, fixed;
     margin-top: 16px;
